@@ -1,0 +1,4 @@
+.l-main {
+  width: 100%;
+  margin: clamp(1px, get_vw(10), 10px) auto clamp(1px, get_vw(80), 80px);
+}

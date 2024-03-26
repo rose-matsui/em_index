@@ -1,0 +1,26 @@
+@import "config";
+@import "mixin";
+@import "reset";
+@import "base";
+@import "layout";
+
+.p-kv{
+    margin-bottom: clamp(10px, get_vw(120) ,120px);
+    .p-kv__img{
+        width:1150px;
+        margin: auto;
+        img{
+            width:100%;
+        }
+    }
+}
+.p-lead{
+    .p-lead__h1{
+        font-size: calcFz(24);
+        text-align: center;
+    }
+    .p-lead__text{
+        font-size: calcFz(14);
+        text-align: center;
+    }
+}

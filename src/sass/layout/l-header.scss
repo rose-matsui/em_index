@@ -1,0 +1,35 @@
+.l-header{
+    position: relative;
+    width: 100%;
+    height: clamp(10px, get_vw(120) ,120px);
+    .l-header__img{
+        width: clamp(10px, get_vw(70) ,70px);
+        display: block;
+        margin: clamp(10px, get_vw(32) ,32px) auto clamp(10px, get_vw(25) ,25px);
+    }
+    .l-nav{
+        .l-nav__list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:clamp(10px, get_vw(40) ,40px);
+            .l-nav__item{
+                font-size: calcFz(14);
+            }
+        }
+    }
+    .l-nav_btn{
+        position: absolute;
+        right:0;
+        top: 0;
+        span{
+            display: block;
+            width: clamp(10px, get_vw(28) ,28px);
+            height: clamp(2px, get_vw(2) ,2px);
+            background-color: #302D2C;
+        }
+        span:first-child{
+            margin-bottom: clamp(10px, get_vw(10) ,10px);
+        }
+    }
+}

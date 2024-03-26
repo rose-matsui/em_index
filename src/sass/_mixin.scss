@@ -1,0 +1,138 @@
+@use "sass:math";
+
+/*
+ * htmlのフォントサイズ
+ * @args ベースの画面幅
+ */
+@function rootPx($baseWidth: 1536px) {
+  @return math.div(10px, $baseWidth) * 100vw;
+}
+
+/*
+ * ルートのフォントサイズを基準にフォントサイズを可変にする（SPはrootPxを設定しておくこと）
+ * @args 最大値（デザイン上の数値）
+ */
+$artBoardPc: 1536;
+
+@function calcFz($max) {
+  // $value: math.div($max, 10);
+  $value: math.div(100, $artBoardPc)*$max;
+  // @return clamp(10px, #{$value}rem, #{$max}px);
+  @return clamp(10px, #{$value}vw, #{$max}px);
+}
+
+/*
+ * スマホの時のfz設定（XDアートボードサイズで引用）
+ */
+$artBoard: 750;
+
+@function calcFzSp($maxSp) {
+  $value: math.div(100, $artBoard)*$maxSp;
+  @return #{$value}vw;
+}
+
+/*
+ * get_vwの設定
+ */
+@function get_vw($size, $viewport: 1536) {
+  $rate: math.div(100, $viewport);
+  @return $rate * $size * 1vw;
+}
+
+/*
+ * get_vwの設定(スマホ)
+ */
+@function get_vwSp($size, $viewport: 750) {
+  $rate: math.div(100, $viewport);
+  @return $rate * $size * 1vw;
+}
+
+/*
+ * margin-topがマイナス値の場合、pxを%に変換
+ */
+@function top_nt($top) {
+  $point: math.div($top, $artBoardPc)* 100;
+  @return #{$point + '%'};
+}
+
+/*
+ * margin-topがマイナス値の場合、pxを%に変換(スマホ)
+ */
+@function top_ntSp($top) {
+  $point: math.div($top, $artBoardSp)* 100;
+  @return #{$point + '%'};
+}
+
+/*
+ * line-heightの計算
+ */
+@function lineH($lineHeight, $fontSize) {
+  $rate: math.div($lineHeight, $fontSize);
+  @return $rate;
+}
+
+/*
+ * breakpointの設定
+ */
+$widthBasePC: 1536px;
+$widthBaseSP: 768px;
+
+@mixin pc {
+  @media screen and (min-width: calc($widthBaseSP)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: #{$widthBaseSP - 1px}) {
+    @content;
+  }
+}
+
+@mixin textP {
+  color: $colorBlack;
+  font-family: $NotoSansCJKJP;
+  font-weight: normal;
+  letter-spacing: 0.09em;
+  text-align: left;
+}
+
+/*
+ * BUY ボタン
+ */
+@mixin buyBtnStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+  color: $colorWhite;
+  font-size: calcFz(17);
+  font-family: $NotoSansCJKJP;
+  font-weight: 300;
+  letter-spacing: 0.09em;
+  background-color: $colorBlack;
+
+  @include sp {
+    font-size: calcFzSp(17);
+  }
+}
+
+@mixin moreBtnText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: clamp(10px, get_vw(645), 645px);
+  margin: auto;
+  padding: clamp(10px, get_vw(30), 30px) 0;
+  font-family: $NotoSansCJKJP;
+  font-size: calcFz(22);
+  font-weight: normal;
+  letter-spacing: 0.1em;
+
+  @include sp {
+    width: get_vwSp(592);
+    padding: get_vwSp(30) 0;
+    font-size: calcFzSp(22);
+  }
+}

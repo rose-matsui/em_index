@@ -1,0 +1,37 @@
+// break point
+$sp: 768px;
+$md: 1280px;
+$pc: 1600px;
+
+@mixin pc-l {
+	@media (min-width: ($pc)) {
+		@content;
+	}
+}
+@mixin md-m {
+	@media (max-width: ($md)) {
+		@content;
+	}
+}
+@mixin sp {
+	@media (max-width: ($sp)) {
+		@content;
+	}
+}
+
+//---font---
+// Roboto
+@mixin font-roboto-regular {
+    font-family: roboto, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+// Poppins
+@mixin font-zenkaku-regular {
+    font-family: zen-kaku-gothic-antique, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

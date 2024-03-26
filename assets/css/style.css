@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/*
+ * htmlのフォントサイズ
+ * @args ベースの画面幅
+ */
+/*
+ * ルートのフォントサイズを基準にフォントサイズを可変にする（SPはrootPxを設定しておくこと）
+ * @args 最大値（デザイン上の数値）
+ */
+/*
+ * スマホの時のfz設定（XDアートボードサイズで引用）
+ */
+/*
+ * get_vwの設定
+ */
+/*
+ * get_vwの設定(スマホ)
+ */
+/*
+ * margin-topがマイナス値の場合、pxを%に変換
+ */
+/*
+ * margin-topがマイナス値の場合、pxを%に変換(スマホ)
+ */
+/*
+ * line-heightの計算
+ */
+/*
+ * breakpointの設定
+ */
+/*
+ * BUY ボタン
+ */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ol {
+  list-style-type: none;
+}
+
+br.pc {
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  br.pc {
+    display: none;
+  }
+}
+
+br.sp {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  br.sp {
+    display: block;
+  }
+}
+
+p, a {
+  color: #302D2C;
+  font-family: zen-kaku-gothic-antique, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.l-header {
+  position: relative;
+  width: 100%;
+  height: clamp(10px, 7.8125vw, 120px);
+}
+.l-header .l-header__img {
+  width: clamp(10px, 4.5572916667vw, 70px);
+  display: block;
+  margin: clamp(10px, 2.0833333333vw, 32px) auto clamp(10px, 1.6276041667vw, 25px);
+}
+.l-header .l-nav .l-nav__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 2.6041666667vw, 40px);
+}
+.l-header .l-nav .l-nav__list .l-nav__item {
+  font-size: clamp(10px, 0.9114583333vw, 14px);
+}
+.l-header .l-nav_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.l-header .l-nav_btn span {
+  display: block;
+  width: clamp(10px, 1.8229166667vw, 28px);
+  height: clamp(2px, 0.1302083333vw, 2px);
+  background-color: #302D2C;
+}
+.l-header .l-nav_btn span:first-child {
+  margin-bottom: clamp(10px, 0.6510416667vw, 10px);
+}
+
+.l-main {
+  width: 100%;
+  margin: clamp(1px, 0.6510416667vw, 10px) auto clamp(1px, 5.2083333333vw, 80px);
+}
+
+.p-kv {
+  margin-bottom: clamp(10px, 7.8125vw, 120px);
+}
+.p-kv .p-kv__img {
+  width: 1150px;
+  margin: auto;
+}
+.p-kv .p-kv__img img {
+  width: 100%;
+}
+
+.p-lead .p-lead__h1 {
+  font-size: clamp(10px, 1.5625vw, 24px);
+  text-align: center;
+}
+.p-lead .p-lead__text {
+  font-size: clamp(10px, 0.9114583333vw, 14px);
+  text-align: center;
+}

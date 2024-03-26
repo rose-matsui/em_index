@@ -1,0 +1,21 @@
+br.pc {
+    display: block;
+  
+    @include sp {
+      display: none;
+    }
+  }
+  
+  br.sp {
+    display: none;
+  
+    @include sp {
+      display: block;
+    }
+  }
+
+  p,a{
+    color:#302D2C;
+    @include font-zenkaku-regular;
+    font-size: 14px;
+  }
